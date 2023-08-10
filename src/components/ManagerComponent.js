@@ -31,23 +31,19 @@ const ManagerComponent = () => {
 
     const handleCreateActivity = async () => {
         try {
-            // Simulate creating an activity and updating the list
-            // const response = await fetch('/api/create/activity', {
-            //   method: 'POST',
-            //   headers: {
-            //     'Content-Type': 'application/json',
-            //   },
-            //   body: JSON.stringify(newActivity),
-            // });
-            // if (response.ok) {
-            //   fetchManagerActivities();
-            //   setNewActivity({
-            //     name: '',
-            //     department: '',
-            //     description: '',
-            //     hours: '',
-            //   });
-            // }
+            // Convert hours value to number
+            const hours = parseInt(newActivity.hours);
+
+            // Make the create activity API request
+            const response = await fetch('http://localhost:5000/api/activities', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ ...newActivity, hours }), // Include the parsed hours value
+            });
+
+            // Rest of the code...
         } catch (error) {
             console.error('Error creating activity:', error);
         }
@@ -74,7 +70,7 @@ const ManagerComponent = () => {
             <div>
                 <h3>Active Activities</h3>
                 <ul>
-                    {activities.map(activity => (
+                    {activities.map((activity) => (
                         <li key={activity.id}>
                             {activity.name} - {activity.department} - {activity.hours} hours
                             <button onClick={() => handleDeleteActivity(activity.id)}>
@@ -91,7 +87,7 @@ const ManagerComponent = () => {
                     type="text"
                     placeholder="Activity Name"
                     value={newActivity.name}
-                    onChange={e =>
+                    onChange={(e) =>
                         setNewActivity({ ...newActivity, name: e.target.value })
                     }
                 />
@@ -99,7 +95,7 @@ const ManagerComponent = () => {
                     type="text"
                     placeholder="Department"
                     value={newActivity.department}
-                    onChange={e =>
+                    onChange={(e) =>
                         setNewActivity({ ...newActivity, department: e.target.value })
                     }
                 />
@@ -107,7 +103,7 @@ const ManagerComponent = () => {
                     type="text"
                     placeholder="Description"
                     value={newActivity.description}
-                    onChange={e =>
+                    onChange={(e) =>
                         setNewActivity({ ...newActivity, description: e.target.value })
                     }
                 />
@@ -115,7 +111,7 @@ const ManagerComponent = () => {
                     type="text"
                     placeholder="Hours"
                     value={newActivity.hours}
-                    onChange={e =>
+                    onChange={(e) =>
                         setNewActivity({ ...newActivity, hours: e.target.value })
                     }
                 />
