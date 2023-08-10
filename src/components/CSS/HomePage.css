@@ -1,0 +1,59 @@
+/* HomePage.css */
+
+body, h1, h2, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+/* Apply a default font */
+body {
+    font-family: Arial, sans-serif;
+    background-color: dimgray;
+}
+
+/* Style for the homepage container */
+.homepage-container {
+    text-align: center;
+    margin: auto;
+    padding: 2rem;
+}
+
+/* Style for the homepage header */
+.homepage-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-bottom: 1px solid #ccc;
+    background-color: lightblue;
+}
+
+/* Style for the homepage title */
+.homepage-title {
+    font-size: 1.5rem;
+}
+
+/* Style for the login container */
+.login-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Style for login and signup links */
+.login-link {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+.login-link:hover {
+    color: #0056b3;
+}
+
+/* Adjust paragraph font size */
+.main-container p {
+    font-size: 1.3rem;
+}

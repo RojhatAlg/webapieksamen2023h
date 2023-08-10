@@ -1,22 +1,25 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './CSS/HomePage.css';
 
 const HomePage = () => {
     return (
-        <div>
-            <header>
-                <h1>Welcome to Time Management Tool</h1>
+        <div className="homepage-container">
+            <header className="homepage-header">
+                <h1 className="homepage-title">Welcome to Time Management Tool</h1>
+                <div className="login-container">
+                    <Link to="/login" className="login-link">Login</Link>
+                </div>
             </header>
-            <main>
+            <main className="main-container">
                 <p>This is the homepage of our time management application.</p>
                 <p>Manage your activities, log hours, and stay organized.</p>
             </main>
-            <footer>
-                <Link to="/login">Login</Link>
-                <Link to="/signup">Sign Up</Link>
-            </footer>
+            <Link to="/test">Test Component</Link>
+
         </div>
     );
 };
 
 export default HomePage;
+
